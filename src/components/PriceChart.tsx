@@ -276,13 +276,13 @@ function IndicatorPane({ kind, main }: { kind: string; main: IChartApi | null })
     const ch = createChart(host.current, { ...baseOpts(), autoSize: true, rightPriceScale: { borderColor: 'rgba(124,140,255,.12)', scaleMargins: { top: 0.15, bottom: 0.15 } }, timeScale: { ...baseOpts().timeScale, visible: false, tickMarkFormatter: (t: any) => fmtTime(Number(t), useGame.getState().tf) }, crosshair: { ...baseOpts().crosshair, mode: CrosshairMode.Normal } });
     ref.current.chart = ch; ref.current.s = [];
     if (kind === 'RSI') {
-      const s = ch.addLineSeries({ color: '#C77DFF', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: true });
+      const s = ch.addLineSeries({ color: '#C77DFF', lineWidth: 1.5 as any, priceLineVisible: false, lastValueVisible: true });
       s.createPriceLine({ price: 70, color: 'rgba(255,92,116,.5)', lineWidth: 1, lineStyle: LineStyle.Dashed, axisLabelVisible: false, title: '' });
       s.createPriceLine({ price: 30, color: 'rgba(46,211,160,.5)', lineWidth: 1, lineStyle: LineStyle.Dashed, axisLabelVisible: false, title: '' });
       ref.current.s = [s];
     } else if (kind === 'MACD') {
-      ref.current.s = [ch.addHistogramSeries({ priceLineVisible: false, lastValueVisible: false }), ch.addLineSeries({ color: '#4FD8F0', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false }), ch.addLineSeries({ color: '#F4B740', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false })];
-    } else ref.current.s = [ch.addLineSeries({ color: '#F4B740', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: true })];
+      ref.current.s = [ch.addHistogramSeries({ priceLineVisible: false, lastValueVisible: false }), ch.addLineSeries({ color: '#4FD8F0', lineWidth: 1.5 as any, priceLineVisible: false, lastValueVisible: false }), ch.addLineSeries({ color: '#F4B740', lineWidth: 1.5 as any, priceLineVisible: false, lastValueVisible: false })];
+    } else ref.current.s = [ch.addLineSeries({ color: '#F4B740', lineWidth: 1.5 as any, priceLineVisible: false, lastValueVisible: true })];
     const sync = (r: any) => { if (r) ch.timeScale().setVisibleLogicalRange(r); };
     main.timeScale().subscribeVisibleLogicalRangeChange(sync);
     const cur = main.timeScale().getVisibleLogicalRange();
