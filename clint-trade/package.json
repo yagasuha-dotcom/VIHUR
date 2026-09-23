@@ -1,0 +1,40 @@
+{
+  "name": "clint-trade",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLINT TRADE - Living financial world simulator (all money and assets are virtual)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "simtest": "tsx scripts/simtest.ts",
+    "playtest": "tsx scripts/playtest.ts",
+    "balance": "tsx scripts/drift.ts",
+    "calibrate": "tsx scripts/gencalib.ts",
+    "test": "npm run simtest -- 739241 30 && npm run playtest",
+    "year": "tsx scripts/year.ts"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "@fontsource/ibm-plex-sans": "^5.1.0",
+    "idb-keyval": "^6.2.1",
+    "lightweight-charts": "^4.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "@types/node": "^22.5.0"
+  }
+}
