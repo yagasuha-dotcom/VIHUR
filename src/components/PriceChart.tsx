@@ -118,7 +118,7 @@ export function PriceChart() {
     const times = arr.map((c) => c.t);
     const closes = arr.map((c) => c.c);
     const set = (id: string, color: string, s: Series, width = 1.5, dash?: number) => {
-      if (!r.over[id]) r.over[id] = chart.addLineSeries({ color, lineWidth: width, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false, ...(dash ? { lineStyle: dash } : {}) });
+      if (!r.over[id]) r.over[id] = chart.addLineSeries({ color, lineWidth: width as any, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false, ...(dash ? { lineStyle: dash } : {}) });
       r.over[id].setData(lineData(times, s));
     };
     for (const id of Object.keys(r.over)) if (!overlayIds.includes(id) && !(id.startsWith('BB') && overlayIds.includes('BB'))) { chart.removeSeries(r.over[id]); delete r.over[id]; }
